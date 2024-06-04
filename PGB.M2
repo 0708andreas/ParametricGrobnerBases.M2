@@ -1,7 +1,7 @@
 
 -- -*- coding: utf-8 -*-
 newPackage(
-    "ParametricGrobnerBases",
+    "ParametricGroebnerBases",
     Version => "0.1",
     Date => "June 5, 2024",
     Authors => {
@@ -27,7 +27,7 @@ CGS(Ideal, Ideal) := (I, S) -> (
 
   return {{ideal gens gb S, ideal h, Gs}} | 
     fold((l1, l2) -> l1 | l2, 
-         apply(hs, hx -> CGS(I, ideal ((entries gens S)#0 | {hx}))));
+         apply(hs, hx -> CGS(I, S + (ideal hx))));
 );
 CGS(Ideal) :=  I -> (
   G := gb I;
